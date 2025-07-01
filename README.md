@@ -212,7 +212,7 @@ Let me know if you'd like this exported as a **PowerPoint slide**, **PDF**, or d
  after removing outbound rule this will not affect our instance to the outside world but when instance send data to user's browser the outbound rule will prevent it.
  Security group are stateful, which means it automatically allow traffic initiated by the instance to which they are attached.
 
-2. ### Working on the Inbound
+2. ### Carrying out testing on the Inbound
 ✅ We go into the **inbound** of our public subnet
 ![caption](/img/13.edit-inbound.jpg)
 
@@ -222,7 +222,7 @@ Let me know if you'd like this exported as a **PowerPoint slide**, **PDF**, or d
 ✅ We notice our webpage will not be accessable when we reload again. This shows that the inbound is responsible for  
 ![caption](/img/3.not-open.jpg)
 
-3. ### allowing only outbound rule
+3. ### carrying out testing with outbound rule
 
 ✅ we go to edit the outbound
 ![caption](/img/16.edit-outbound.jpg)
@@ -238,6 +238,7 @@ Let me know if you'd like this exported as a **PowerPoint slide**, **PDF**, or d
 
 
 ## Working with NACL
+The Nacl works as 
 1. Go to the Network ACLs under Vpc dashboard
 ![caption](/img/20.Network-Acl.jpg)
 
@@ -269,3 +270,26 @@ Let me know if you'd like this exported as a **PowerPoint slide**, **PDF**, or d
 ![caption](/img/30.%20success-web.jpg)
 
 Removing the inbound rule of the Nacl won't allow us access the website again
+![caption](/img/31.removing-inbound-nacl.jpg)
+
+This will make our website not accessible again.
+![caption](/img/3.not-open.jpg)
+
+
+
+## Conclusion on the project
+* **NACL allows all inbound and outbound traffic, Security Group denies all inbound and outbound traffic**:
+  **Outcome**: Website access will be blocked because the Security Group denies all traffic, overriding the NACL's allowance.
+
+* **NACL denies all inbound and outbound traffic, Security Group allows all inbound and outbound traffic**:
+  **Outcome**: Website access will be blocked because the NACL denies all traffic, regardless of the Security Group's allowances.
+
+* **NACL allows HTTP inbound traffic, outbound traffic is denied, Security Group allows inbound traffic and denies outbound traffic**:
+  **Outcome**: Website access will be allowed because the Security Group allows HTTP inbound traffic, regardless of the NACL's allowances. However, if the website requires outbound traffic to function properly, it won't work due to the Security Group's denial of outbound traffic.
+
+
+* NACL allows all inbound and outbound traffic, Security Group allows all inbound and outbound traffic:
+  **Outcome**: Website access will be allowed, as both NACL and Security Group allow all traffic.
+
+* NACL denies all inbound and outbound traffic, Security Group allows HTTP inbound traffic and denies outbound traffic:
+  **Outcome**: Website access will be blocked because the NACL denies all traffic, regardless of the Security Group's allowances.
