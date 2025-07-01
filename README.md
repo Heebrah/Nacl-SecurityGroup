@@ -162,9 +162,9 @@ Source: sg-0123abcd4567efgh8 (Web Server SG)
 Let me know if you'd like this exported as a **PowerPoint slide**, **PDF**, or drawn as a **detailed network diagram** with AWS icons.
 
 
-## Project on SecurityGroup & Nacl
-Part 1:  
-### Security Group
+# Project on SecurityGroup & Nacl
+
+## Working Security Group
 
 **Preview**: From the previous project on Vpc we created a private and public subnet which allows us to be able to access public subnet on the internet or allows it passage to the gateway. see 👉 https://github.com/Heebrah/Vpc-Aws for reference
 1. We go to subnet then to the public subnet created in the previous project
@@ -236,9 +236,8 @@ Part 1:
 ✅ But we can fetch data from outside using the command curl
 ![caption](/img/19.going-out.jpg)
 
-Part 2
 
-### NACL
+## Working with NACL
 1. Go to the Network ACLs under Vpc dashboard
 ![caption](/img/20.Network-Acl.jpg)
 
